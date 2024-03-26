@@ -1,43 +1,16 @@
-import { Document, Schema, model, models } from "mongoose";
+import { Schema, model, models } from "mongoose";
 
-export interface IImage extends Document {
-  title: string;
-  transformationType: string;
-  publicId: string;
-  secureUrl: string;
-  width?: number;
-  height?: number;
-  config?: object;
-  transformationUrl?: URL;
-  aspectRatio?: string;
-  color?: string;
-  prompt?: string;
-  author: {
-    _id: string;
-    firstName: string;
-    lastName: string;
-  };
-  createdAt?: Date;
-  updatedAt?: Date;
-}
-
-const ImageSchema = new Schema({
-  title: { type: String, required: true },
-  transformationType: { type: String, required: true },
-  publicId: { type: String, required: true },
-  secureUrl: { type: URL, required: true },
-  width: { type: Number },
-  height: { type: Number },
-  config: { type: Object },
-  transformationUrl: { type: URL },
-  aspectRatio: { type: String },
-  color: { type: String },
-  prompt: { type: String },
-  author: { type: Schema.Types.ObjectId, ref: "User" },
-  createdAt: { type: Date, default: Date.now },
-  updatedAt: { type: Date, default: Date.now },
+const userSchema = new Schema({
+  clerkId: { type: String, required: true, unique: true },
+  email: { type: String, required: true, unique: true },
+  username: { type: String, required: true, unique: true },
+  photo: { type: String, required: true },
+  firstName: { type: String },
+  lastName: { type: String },
+  planId: { type: String, default: 1 },
+  creditBalance: { type: Number, default: 10 },
 });
 
-const Image = models?.Image || model("Image", ImageSchema);
+const User = models?.User || model("User", userSchema);
 
-export default Image;
+export default User;
