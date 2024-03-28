@@ -10,7 +10,7 @@ export async function createUser(user: CreateUserParams) {
   try {
     await dbConnect();
 
-    console.log(user);
+    console.log("User Obj: " + user);
 
     const newUser = await User.create(user);
 
@@ -41,6 +41,8 @@ export async function getUserById(userId: string) {
 export async function updateUser(clerkId: string, user: UpdateUserParams) {
   try {
     await dbConnect();
+
+    console.log("updateUser: " + clerkId);
 
     const updatedUser = await User.findOneAndUpdate({ clerkId }, user, {
       new: true,
