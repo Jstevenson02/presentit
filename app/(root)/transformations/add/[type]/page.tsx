@@ -8,12 +8,11 @@ import { redirect } from "next/navigation";
 const AddTransformationTypePage = async ({
   params: { type },
 }: SearchParamProps) => {
-  // MongoDB must populate in order to find userId
   const { userId } = auth();
 
   const transformation = transformationTypes[type];
 
-  if (!userId) redirect("/sign-in");
+  if (!userId) redirect("/");
 
   const user = await getUserById(userId);
 
