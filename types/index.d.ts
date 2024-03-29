@@ -88,12 +88,7 @@ declare type CreateTransactionParams = {
   createdAt: Date;
 };
 
-declare type TransformationTypeKey =
-  | "restore"
-  | "fill"
-  | "remove"
-  | "recolor"
-  | "removeBackground";
+declare type TransformationTypeKey = "restore" | "fill" | "remove" | "recolor" | "removeBackground";
 
 // ====== URL QUERY PARAMS
 declare type FormUrlQueryParams = {
