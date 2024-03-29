@@ -10,8 +10,6 @@ export async function createUser(user: CreateUserParams) {
   try {
     await connectToDatabase();
 
-    console.log("User Obj: " + user);
-
     const newUser = await User.create(user);
 
     return JSON.parse(JSON.stringify(newUser));
@@ -25,11 +23,7 @@ export async function getUserById(userId: string) {
   try {
     await connectToDatabase();
 
-    console.log("UserId: " + userId);
-
     const user = await User.findOne({ clerkId: userId });
-
-    console.log("done.");
 
     if (!user) throw new Error("User not found!");
 
