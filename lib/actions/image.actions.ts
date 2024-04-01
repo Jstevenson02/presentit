@@ -6,6 +6,8 @@ import { handleError } from "../utils";
 import User from "../database/models/user.model";
 import Image from "../database/models/image.model";
 import { redirect } from "next/navigation";
+import { v2 as cloudinary } from "cloudinary";
+import exp from "constants";
 
 const populateUser = (query: any) =>
   query.populate({
@@ -82,6 +84,76 @@ export async function getImageById(imageId: string) {
     if (!image) throw new Error("Image not found.");
 
     return JSON.parse(JSON.stringify(image));
+  } catch (error) {
+    handleError(error);
+  }
+}
+
+// GET ALL Images
+// 1. Connet to databse in MongoDB
+// 2. Query cloudinary cloud storage folder
+// 3. Build
+export async function getAllImages({
+  limit = 9,
+  page = 1,
+  searchQuery = "",
+}: {
+  limit?: number;
+  page: number;
+  searchQuery?: string;
+}) {
+  try {
+    await connectToDatabase();
+
+    cloudinary.config({
+      cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+      api_key: process.env.CLOUDINARY_API_KEY,
+      api_secret: process.env.CLOUDINARY_API_SECRET,
+      secure: true,
+    });
+
+    // folder that stores all images
+    let expression = "folder=imagenDev";
+
+    // append folder to the URl
+    if (searchQuery) {
+      expression += `AND ${searchQuery}`;
+    }
+
+    // search all data in cloudinary (the images)
+    const { resources } = await cloudinary.search.expression(expression).execute();
+
+    // + public_id
+    const resourceIds = resources.map((resource: any) => resource.public_id);
+
+    let query = {};
+
+    if (searchQuery) {
+      query = {
+        publicId: {
+          $in: resourceIds,
+        },
+      };
+    }
+
+    const skipAmount = (Number(page) - 1) * limit;
+
+    // final image objects sorted newest > oldest
+    const images = await populateUser(Image.find(query))
+      .sort({ updatedAt: -1 })
+      .skip(skipAmount)
+      .limit(limit);
+
+    // total saved images
+    const totalImages = await Image.find(query).countDocuments();
+    // ALL saved images
+    const savedImages = await Image.find().countDocuments();
+
+    return {
+      data: JSON.parse(JSON.stringify(images)),
+      totalPages: Math.ceil(totalImages / limit),
+      savedImages,
+    };
   } catch (error) {
     handleError(error);
   }
