@@ -7,13 +7,12 @@ import User from "../database/models/user.model";
 import Image from "../database/models/image.model";
 import { redirect } from "next/navigation";
 import { v2 as cloudinary } from "cloudinary";
-import exp from "constants";
 
 const populateUser = (query: any) =>
   query.populate({
     path: "author",
     model: User,
-    select: "_id firstName lastName",
+    select: "_id firstName lastName clerkId",
   });
 
 // ADD Image
