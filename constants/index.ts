@@ -47,10 +47,10 @@ export const plans = [
     name: "Free",
     icon: "/assets/icons/free-plan.svg",
     price: 0,
-    credits: 20,
+    credits: 5,
     inclusions: [
       {
-        label: "20 Free Credits",
+        label: "5 Free Credits",
         isIncluded: true,
       },
       {
@@ -65,17 +65,21 @@ export const plans = [
         label: "Priority Updates",
         isIncluded: false,
       },
+      {
+        label: "Founders Only Discord Access",
+        isIncluded: false,
+      },
     ],
   },
   {
     _id: 2,
     name: "Pro Package",
     icon: "/assets/icons/free-plan.svg",
-    price: 40,
-    credits: 120,
+    price: 10,
+    credits: 50,
     inclusions: [
       {
-        label: "120 Credits",
+        label: "50 Credits",
         isIncluded: true,
       },
       {
@@ -90,13 +94,46 @@ export const plans = [
         label: "Priority Updates",
         isIncluded: false,
       },
+      {
+        label: "Founders Only Discord Access",
+        isIncluded: false,
+      },
     ],
   },
   {
     _id: 3,
     name: "Premium Package",
     icon: "/assets/icons/free-plan.svg",
-    price: 199,
+    price: 40,
+    credits: 500,
+    inclusions: [
+      {
+        label: "500 Credits",
+        isIncluded: true,
+      },
+      {
+        label: "Full Access to Services",
+        isIncluded: true,
+      },
+      {
+        label: "Priority Customer Support",
+        isIncluded: true,
+      },
+      {
+        label: "Priority Updates",
+        isIncluded: true,
+      },
+      {
+        label: "Founders Only Discord Access",
+        isIncluded: false,
+      },
+    ],
+  },
+  {
+    _id: 4,
+    name: "Excelsior Package",
+    icon: "/assets/icons/free-plan.svg",
+    price: 150,
     credits: 2000,
     inclusions: [
       {
@@ -113,6 +150,10 @@ export const plans = [
       },
       {
         label: "Priority Updates",
+        isIncluded: true,
+      },
+      {
+        label: "Founders Only Discord Access",
         isIncluded: true,
       },
     ],
