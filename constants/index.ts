@@ -47,10 +47,11 @@ export const plans = [
     name: "Free",
     icon: "/assets/icons/free-plan.svg",
     price: 0,
+    oldPrice: 5,
     credits: 5,
     inclusions: [
       {
-        label: "5 Free Credits",
+        label: "5 Credits",
         isIncluded: true,
       },
       {
@@ -66,6 +67,10 @@ export const plans = [
         isIncluded: false,
       },
       {
+        label: "New Experimental Features",
+        isIncluded: false,
+      },
+      {
         label: "Founders Only Discord Access",
         isIncluded: false,
       },
@@ -76,12 +81,14 @@ export const plans = [
     name: "Pro Package",
     icon: "/assets/icons/free-plan.svg",
     price: 10,
+    oldPrice: 15,
     credits: 50,
     inclusions: [
       {
         label: "50 Credits",
         isIncluded: true,
       },
+
       {
         label: "Full Access to Services",
         isIncluded: true,
@@ -95,6 +102,10 @@ export const plans = [
         isIncluded: false,
       },
       {
+        label: "New Experimental Features",
+        isIncluded: false,
+      },
+      {
         label: "Founders Only Discord Access",
         isIncluded: false,
       },
@@ -105,6 +116,7 @@ export const plans = [
     name: "Premium Package",
     icon: "/assets/icons/free-plan.svg",
     price: 40,
+    oldPrice: 80,
     credits: 500,
     inclusions: [
       {
@@ -124,6 +136,10 @@ export const plans = [
         isIncluded: true,
       },
       {
+        label: "New Experimental Features",
+        isIncluded: true,
+      },
+      {
         label: "Founders Only Discord Access",
         isIncluded: false,
       },
@@ -134,6 +150,7 @@ export const plans = [
     name: "Excelsior Package",
     icon: "/assets/icons/free-plan.svg",
     price: 150,
+    oldPrice: 300,
     credits: 2000,
     inclusions: [
       {
@@ -150,6 +167,10 @@ export const plans = [
       },
       {
         label: "Priority Updates",
+        isIncluded: true,
+      },
+      {
+        label: "New Experimental Features",
         isIncluded: true,
       },
       {
