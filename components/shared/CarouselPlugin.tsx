@@ -3,7 +3,6 @@
 import Autoplay from "embla-carousel-autoplay";
 import React from "react";
 import { exampleCards } from "@/constants";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -17,19 +16,27 @@ export function CarouselPlugin() {
   const plugin = React.useRef(Autoplay({ delay: 6000, stopOnInteraction: true }));
 
   return (
-    <section className='sm:m-4'>
+    <section className='mb-6'>
       <Carousel
+        className=''
         unselectable='on'
         plugins={[plugin.current]}
-        className='w-full'
         onMouseEnter={plugin.current.stop}
         onMouseLeave={plugin.current.reset}
       >
         <CarouselContent>
           {exampleCards.map((card, index) => (
-            <CarouselItem key={index} className='md:basis-1/2 '>
-              <Image src={card.image} alt={card.label} width={820} height={412} />
-            </CarouselItem>
+            <>
+              <CarouselItem key={index} className='flex aspect-square items-center justify-center'>
+                <Image
+                  className='max-h-full'
+                  src={card.image}
+                  alt={card.label}
+                  width={999}
+                  height={0}
+                />
+              </CarouselItem>
+            </>
           ))}
         </CarouselContent>
         <CarouselPrevious className='ml-14' />

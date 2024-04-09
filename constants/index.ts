@@ -43,16 +43,36 @@ export const navLinks = [
 
 export const exampleCards = [
   {
-    label: "Recolor",
-    image: "/assets/examples/flowers.png",
+    label: "Before",
+    image: "/assets/examples/RCB.jpg",
   },
   {
-    label: "Me",
-    image: "/assets/examples/me.png",
+    label: "After",
+    image: "/assets/examples/RCA.jpg",
   },
   {
-    label: "genfill",
-    image: "/assets/examples/genfill.png",
+    label: "Before",
+    image: "/assets/examples/BRB.png",
+  },
+  {
+    label: "After",
+    image: "/assets/examples/BRA.png",
+  },
+  {
+    label: "Before",
+    image: "/assets/examples/GFB.png",
+  },
+  {
+    label: "After",
+    image: "/assets/examples/GFA.png",
+  },
+  {
+    label: "Before",
+    image: "/assets/examples/BRB1.png",
+  },
+  {
+    label: "After",
+    image: "/assets/examples/BRA1.png",
   },
 ];
 
