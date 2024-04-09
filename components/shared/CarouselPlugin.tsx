@@ -17,8 +17,9 @@ export function CarouselPlugin() {
   const plugin = React.useRef(Autoplay({ delay: 6000, stopOnInteraction: true }));
 
   return (
-    <section className='sm:mb-12'>
+    <section className='sm:m-4'>
       <Carousel
+        unselectable='on'
         plugins={[plugin.current]}
         className='w-full'
         onMouseEnter={plugin.current.stop}
