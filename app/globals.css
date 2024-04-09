@@ -226,6 +226,9 @@
     @apply h1-semibold max-w-[500px] flex-wrap text-center text-white shadow-sm;
   }
 
+  .carousel {
+  }
+
   /* Credits Page */
   .credits-list {
     @apply mt-11 grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-9 xl:grid-cols-3;

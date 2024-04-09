@@ -41,6 +41,21 @@ export const navLinks = [
   },
 ];
 
+export const exampleCards = [
+  {
+    label: "Recolor",
+    image: "/assets/examples/flowers.png",
+  },
+  {
+    label: "Me",
+    image: "/assets/examples/me.png",
+  },
+  {
+    label: "genfill",
+    image: "/assets/examples/genfill.png",
+  },
+];
+
 export const plans = [
   {
     _id: 1,
