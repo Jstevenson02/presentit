@@ -16,7 +16,7 @@ export function CarouselPlugin() {
   const plugin = React.useRef(Autoplay({ delay: 6000, stopOnInteraction: true }));
 
   return (
-    <section className='mb-6'>
+    <section className='mb-10'>
       <Carousel
         className=''
         unselectable='on'
@@ -27,7 +27,10 @@ export function CarouselPlugin() {
         <CarouselContent>
           {exampleCards.map((card, index) => (
             <>
-              <CarouselItem key={index} className='flex aspect-square items-center justify-center'>
+              <CarouselItem
+                key={index}
+                className='md:basis-1/3 lg:basis-1/2 flex aspect-square items-center justify-center'
+              >
                 <Image
                   className='max-h-full'
                   src={card.image}

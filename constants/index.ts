@@ -277,6 +277,12 @@ export const aspectRatioOptions = {
     width: 1000,
     height: 1778,
   },
+  "16:9": {
+    aspectRatio: "16:9",
+    label: "Full High Defintion (16:9)",
+    width: 1920,
+    height: 1080,
+  },
 };
 
 export const defaultValues = {
