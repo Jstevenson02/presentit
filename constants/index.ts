@@ -74,6 +74,14 @@ export const exampleCards = [
     label: "After",
     image: "/assets/examples/BRA1.png",
   },
+  {
+    label: "Before",
+    image: "/assets/examples/ORB.jpg",
+  },
+  {
+    label: "After",
+    image: "/assets/examples/ORA.jpg",
+  },
 ];
 
 export const plans = [
