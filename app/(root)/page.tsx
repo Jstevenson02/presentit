@@ -1,17 +1,27 @@
+import React from "react";
+
 import { CarouselPlugin } from "@/components/shared/CarouselPlugin";
 import { Collection } from "@/components/shared/Collection";
 import { navLinks } from "@/constants";
-import { getAllImages } from "@/lib/actions/image.actions";
-
+import { getUserImages } from "@/lib/actions/image.actions";
+import { auth } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { redirect } from "next/navigation";
+import { getUserById } from "@/lib/actions/user.actions";
+// import { getAllImages } from "@/lib/actions/image.actions";
 
 const Home = async ({ searchParams }: SearchParamProps) => {
   const page = Number(searchParams?.page) || 1;
-  const searchQuery = (searchParams?.query as string) || "";
+  const { userId } = auth();
 
-  const images = await getAllImages({ page, searchQuery });
+  if (!userId) redirect("/sign-in");
+
+  const user = await getUserById(userId);
+  const images = await getUserImages({ page, userId: user._id });
+
+  // const searchQuery = (searchParams?.query as string) || "";
+  // const images = await getAllImages({ page, searchQuery });
 
   return (
     <>
